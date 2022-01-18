@@ -1,4 +1,4 @@
-# Documentation of the go-ethereum website
+# Documentation of the DCC documents website
 
 To start a jekyll server run:
 ```shell
