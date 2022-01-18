@@ -73,7 +73,7 @@ command will fetch the latest json file (and the accompanying
 [signature-file](vulnerabilities.json.minisig), and cross-check the data against it's own
 version number.
 
-The file itself is hosted in the Github repository, on the `gh-pages`-branch. The list was
+The file itself is hosted in the Github repository, on the `master`-branch. The list was
 started in November 2020, and covers mainly `v1.9.7` and forward.
 
 The JSON file of known vulnerabilities below is a list of objects, one for each

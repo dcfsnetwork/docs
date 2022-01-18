@@ -597,7 +597,7 @@
 
           // Retrieve the commit of the latest release for the download links
           $.ajax({
-            url: 'https://api.github.com/repos/ethereum/go-ethereum/commits/' + release.tag_name,
+            url: 'https://api.github.com/repos/dcfsnetwork/dcfs-core/commits/' + release.tag_name,
             error: function() {
               alert("Failed to load latest release!");
             },
@@ -626,7 +626,7 @@
     </script>
 
     <hr/>
-    <footer class="container"><p>&copy; 2013–2021. The go-ethereum Authors. <a href="https://github.com/ethereum/go-ethereum/blob/gh-pages/downloads.html">Edit this page.</a></p>
+    <footer class="container"><p>&copy; 2013–2021. The DCC Authors. <a href="https://github.com/dcfsnetwork/docs/blob/master/downloads.html">Edit this page.</a></p>
     </footer>
   </body>
 </html>
