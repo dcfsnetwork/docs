@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Go API | Go Ethereum</title>
+    <!-- debug root:../../debug-path -->
+
+    <link rel="icon" type="image/png" href="../../static/images/favicon.png" />
+
+    <link rel="stylesheet" href="../../static/styles/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="../../static/styles/flatly.min.css" />
+
+    <link rel="stylesheet" href="../../static/styles/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="../../static/styles/custom/common.css" />
+
+    <link rel="stylesheet" href="../../static/styles/custom/vss.css" />
+
+
+
+
+
+    <script src="../../static/scripts/jquery.min.js"></script>
+
+    <script src="../../static/scripts/bootstrap.min.js"></script>
+
+    <script src="../../static/scripts/moment.min.js"></script>
+
+    <script src="../../static/scripts/marked.min.js"></script>
+
+    <script src="../../static/scripts/emojify.min.js"></script>
+
+    <script src="../../static/scripts/custom/polyfills.js"></script>
+
+
+
+  <!-- Matomo -->
+  <script type="text/javascript">
+    var _paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="https://matomo.ethereum.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '22']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <noscript><p><img src="https://matomo.ethereum.org/matomo.php?idsite=22&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <!-- End Matomo Code -->
+</head>
+
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../..">Go Ethereum</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            
+              
+              <li><a href="../../docs/install-and-build/installing-geth">Install</a></li>
+            
+              
+              <li><a href="../../downloads/">Downloads</a></li>
+            
+              
+              <li><a href="../../docs/">Documentation</a></li>
+            
+          </ul>
+          <form class="navbar-form pull-right" role="search" method="get" action="https://duckduckgo.com/">
+            <input type="hidden" name="sites" value="geth.ethereum.org">
+            <input type="hidden" name="kz" value="-1">
+            <div class="input-group navbar-input-group-fixup">
+              <input class="input-sm" type="text" name="q" placeholder="Search site...">
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-default btn-sm"><i class="fa fa-search" aria-hidden="true"></i></button>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </nav>
+    
+<div class="container" style="padding-top: 24px;">
+  <div class="row">
+    <div class="col-md-3" id="toc" style="padding-top: 16px;">
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../../docs/getting-started">Getting Started</a>
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../../docs/install-and-build/installing-geth">Install and Build</a>
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../../docs/interface/command-line-options">Using Geth</a>
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../../docs/dapp/native">For dApp Developers</a>
+        
+          
+          
+            
+            
+              
+              
+              
+              <a class="list-group-item " href="../../docs/dapp/tracing">EVM Tracing</a>
+            
+          
+            
+            
+              
+              
+              
+              <a class="list-group-item " href="../../docs/dapp/tracing-filtered">Filtered Tracing</a>
+            
+          
+            
+            
+              
+              
+              
+              <a class="list-group-item disabled" href="../../docs/dapp/native">Go API</a>
+            
+          
+            
+            
+              
+              
+              
+              <a class="list-group-item " href="../../docs/dapp/native-accounts">Go Account Management</a>
+            
+          
+            
+            
+              
+              
+              
+              <a class="list-group-item " href="../../docs/dapp/native-bindings">Go Contract Bindings</a>
+            
+          
+            
+            
+              
+              
+              
+              <a class="list-group-item " href="../../docs/dapp/mobile">Mobile API</a>
+            
+          
+            
+            
+              
+              
+              
+              <a class="list-group-item " href="../../docs/dapp/mobile-accounts">Mobile Account Management</a>
+            
+          
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../../docs/rpc/server">JSON RPC APIs</a>
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../../docs/developers/devguide">For Geth Developers</a>
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../../docs/clef/tutorial">Clef</a>
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../../docs/vulnerabilities/vulnerabilities">Vulnerabilities</a>
+        
+      </div>
+    
+    </div>
+    <div class="col-md-9" id="content">
+      
+        <h1 class="featurette-heading">Go API</h1>
+      
+      <p>The Ethereum blockchain along with its two extension protocols Whisper and Swarm was
+originally conceptualized to become the supporting pillar of web3, providing the
+consensus, messaging and storage backbone for a new generation of distributed (actually,
+decentralized) applications called DApps.</p>
+
+<p>The first incarnation towards this dream of web3 was a command line client providing an
+RPC interface into the peer-to-peer protocols. The client was soon enough extended with a
+web-browser-like graphical user interface, permitting developers to write DApps based on
+the tried and proven HTML/CSS/JS technologies.</p>
+
+<p>As many DApps have more complex requirements than what a browser environment can handle,
+it became apparent that providing programmatic access to the web3 pillars would open the
+door towards a new class of applications. As such, the second incarnation of the web3
+dream is to open up all our technologies for other projects as reusable components.</p>
+
+<p>Starting with the 1.5 release family of <code class="language-plaintext highlighter-rouge">go-ethereum</code>, we transitioned away from providing
+only a full blown Ethereum client and started shipping official Go packages that could be
+embedded into third party desktop and server applications.</p>
+
+<p><em>Note, this guide will assume you are familiar with Go development. It will make no
+attempts to cover general topics about Go project layouts, import paths or any other
+standard methodologies. If you are new to Go, consider reading its <a href="https://github.com/golang/go/wiki#getting-started-with-go">getting started guides</a> first.</em></p>
+
+<h2 id="quick-overview">Quick overview</h2>
+
+<p>Our reusable Go libraries focus on four main usage areas:</p>
+
+<ul>
+  <li>Simplified client side account management</li>
+  <li>Remote node interfacing via different transports</li>
+  <li>Contract interactions through auto-generated bindings</li>
+  <li>In-process Ethereum, Whisper and Swarm peer-to-peer node</li>
+</ul>
+
+<p>You can watch a quick overview about these in Peter’s (@karalabe) talk titled “Import
+Geth: Ethereum from Go and beyond”, presented at the Ethereum Devcon2 developer conference
+in September, 2016 (Shanghai). Slides are <a href="https://ethereum.karalabe.com/talks/2016-devcon.html">available here</a>.</p>
+
+<p><a href="https://www.youtube.com/watch?v=R0Ia1U9Gxjg"><img src="https://img.youtube.com/vi/R0Ia1U9Gxjg/0.jpg" alt="Peter's Devcon2 talk" /></a></p>
+
+<h2 id="go-packages">Go packages</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">go-ethereum</code> library is distributed as a collection of standard Go packages straight
+from our GitHub repository. The packages can be used directly via the official Go toolkit,
+without needing any third party tools. External dependencies are vendored locally into
+<code class="language-plaintext highlighter-rouge">vendor</code>, ensuring both self-containment as well as code stability. If you reuse
+<code class="language-plaintext highlighter-rouge">go-ethereum</code> in your own project, please follow these best practices and vendor it
+yourself too to avoid any accidental API breakages!</p>
+
+<p>The canonical import path for <code class="language-plaintext highlighter-rouge">go-ethereum</code> is <code class="language-plaintext highlighter-rouge">github.com/ethereum/go-ethereum</code>, with all
+packages residing underneath. Although there are <a href="https://pkg.go.dev/github.com/ethereum/go-ethereum/#section-directories">quite a number</a> of
+them, you’ll only need to care about a limited subset, each of which will be properly
+introduced in their relevant section.</p>
+
+<p>You can download all our packages via:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ go get -d github.com/ethereum/go-ethereum/...
+</code></pre></div></div>
+
+
+    </div>
+  </div>
+</div>
+
+    <hr/>
+    <footer class="container"><p>&copy; 2013–2021. The go-ethereum Authors. <a href="https://github.com/ethereum/go-ethereum/blob/gh-pages/docs/_dapp/native.md">Edit this page.</a></p>
+    </footer>
+  </body>
+</html>

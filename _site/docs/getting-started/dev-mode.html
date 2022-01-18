@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Dev mode | Go Ethereum</title>
+    <!-- debug root:../../debug-path -->
+
+    <link rel="icon" type="image/png" href="../../static/images/favicon.png" />
+
+    <link rel="stylesheet" href="../../static/styles/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="../../static/styles/flatly.min.css" />
+
+    <link rel="stylesheet" href="../../static/styles/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="../../static/styles/custom/common.css" />
+
+    <link rel="stylesheet" href="../../static/styles/custom/vss.css" />
+
+
+
+
+
+    <script src="../../static/scripts/jquery.min.js"></script>
+
+    <script src="../../static/scripts/bootstrap.min.js"></script>
+
+    <script src="../../static/scripts/moment.min.js"></script>
+
+    <script src="../../static/scripts/marked.min.js"></script>
+
+    <script src="../../static/scripts/emojify.min.js"></script>
+
+    <script src="../../static/scripts/custom/polyfills.js"></script>
+
+
+
+  <!-- Matomo -->
+  <script type="text/javascript">
+    var _paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="https://matomo.ethereum.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '22']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <noscript><p><img src="https://matomo.ethereum.org/matomo.php?idsite=22&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <!-- End Matomo Code -->
+</head>
+
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../..">Go Ethereum</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            
+              
+              <li><a href="../../docs/install-and-build/installing-geth">Install</a></li>
+            
+              
+              <li><a href="../../downloads/">Downloads</a></li>
+            
+              
+              <li><a href="../../docs/">Documentation</a></li>
+            
+          </ul>
+          <form class="navbar-form pull-right" role="search" method="get" action="https://duckduckgo.com/">
+            <input type="hidden" name="sites" value="geth.ethereum.org">
+            <input type="hidden" name="kz" value="-1">
+            <div class="input-group navbar-input-group-fixup">
+              <input class="input-sm" type="text" name="q" placeholder="Search site...">
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-default btn-sm"><i class="fa fa-search" aria-hidden="true"></i></button>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </nav>
+    
+<div class="container" style="padding-top: 24px;">
+  <div class="row">
+    <div class="col-md-3" id="toc" style="padding-top: 16px;">
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../../docs/getting-started">Getting Started</a>
+        
+          
+          
+            
+            
+              
+              
+              
+              <a class="list-group-item " href="../../docs/getting-started">Getting Started with Geth</a>
+            
+          
+            
+            
+              
+              
+              
+              <a class="list-group-item disabled" href="../../docs/getting-started/dev-mode">Dev mode</a>
+            
+              
+              
+              
+              <a class="list-group-item " href="../../docs/getting-started/private-net">Private Network Tutorial</a>
+            
+          
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../../docs/install-and-build/installing-geth">Install and Build</a>
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../../docs/interface/command-line-options">Using Geth</a>
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../../docs/dapp/native">For dApp Developers</a>
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../../docs/rpc/server">JSON RPC APIs</a>
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../../docs/developers/devguide">For Geth Developers</a>
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../../docs/clef/tutorial">Clef</a>
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../../docs/vulnerabilities/vulnerabilities">Vulnerabilities</a>
+        
+      </div>
+    
+    </div>
+    <div class="col-md-9" id="content">
+      
+        <h1 class="featurette-heading">Dev mode</h1>
+      
+      <p>Geth has a development mode that sets up a single node Ethereum test network with options optimized for developing on local machines. You enable it with the <code class="language-plaintext highlighter-rouge">--dev</code> argument.</p>
+
+<p>Starting geth in dev mode does the following:</p>
+
+<ul>
+  <li>Initializes the data directory with a testing genesis block</li>
+  <li>Sets max peers to 0</li>
+  <li>Turns off discovery by other nodes</li>
+  <li>Sets the gas price to 0</li>
+  <li>Uses the Clique PoA consensus engine with which allows blocks to be mined as-needed without excessive CPU and memory consumption</li>
+  <li>Uses on-demand block generation, producing blocks when transactions are waiting to be mined</li>
+</ul>
+
+<h2 id="start-geth-in-dev-mode">Start Geth in Dev Mode</h2>
+
+<p>You can specify a data directory to maintain state between runs using the <code class="language-plaintext highlighter-rouge">--datadir</code> option, otherwise, databases are ephemeral and in-memory:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>test-chain-dir
+</code></pre></div></div>
+
+<p>For this guide, start geth in dev mode, and enable <a href="../../_rpc/server.md">RPC</a> so you can connect other applications to geth. For this guide, we use Remix, the web-based Ethereum IDE, so also allow its domains to accept cross-origin requests.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geth <span class="nt">--datadir</span> test-chain-dir <span class="nt">--http</span> <span class="nt">--dev</span> <span class="nt">--http</span>.corsdomain <span class="s2">"https://remix.ethereum.org,http://remix.ethereum.org"</span>
+</code></pre></div></div>
+
+<p>Connect to the IPC console on the node from another terminal window:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>geth attach &lt;IPC_LOCATION&gt;
+</code></pre></div></div>
+
+<p>Once geth is running in dev mode, you can interact with it in the same way as when geth is running in other ways.</p>
+
+<p>For example, create a test account:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> personal.newAccount<span class="o">()</span>
+</code></pre></div></div>
+
+<p>And transfer ether from the coinbase to the new account:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> eth.sendTransaction<span class="o">({</span>from:eth.coinbase, to:eth.accounts[1], value: web3.toWei<span class="o">(</span>0.05, <span class="s2">"ether"</span><span class="o">)})</span>
+</code></pre></div></div>
+
+<p>And check the balance of the account:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> eth.getBalance<span class="o">(</span>eth.accounts[1]<span class="o">)</span>
+</code></pre></div></div>
+
+<p>If you want to test your dapps with a realistic block time use the <code class="language-plaintext highlighter-rouge">--dev.period</code> option when you start dev mode with the <code class="language-plaintext highlighter-rouge">--dev.period 14</code> argument.</p>
+
+<h2 id="connect-remix-to-geth">Connect Remix to Geth</h2>
+
+<p>With geth now running, open <a href="https://remix.ethereum.org">https://remix.ethereum.org</a>. Compile the contract as normal,
+but when you deploy and run a contract, select <em>Web3 Provider</em> from the <em>Environment</em>
+dropdown, and add “http://127.0.0.1:8545” to the popup box. Click <em>Deploy</em>, and interact
+with the contract. You should see contract creation, mining, and transaction activity.</p>
+
+    </div>
+  </div>
+</div>
+
+    <hr/>
+    <footer class="container"><p>&copy; 2013–2021. The go-ethereum Authors. <a href="https://github.com/ethereum/go-ethereum/blob/gh-pages/docs/_getting-started/dev-mode.md">Edit this page.</a></p>
+    </footer>
+  </body>
+</html>

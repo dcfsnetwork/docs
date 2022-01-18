@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Geth Documentation | Go Ethereum</title>
+    <!-- debug root:../debug-path -->
+
+    <link rel="icon" type="image/png" href="../static/images/favicon.png" />
+
+    <link rel="stylesheet" href="../static/styles/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="../static/styles/flatly.min.css" />
+
+    <link rel="stylesheet" href="../static/styles/font-awesome.min.css" />
+
+    <link rel="stylesheet" href="../static/styles/custom/common.css" />
+
+    <link rel="stylesheet" href="../static/styles/custom/vss.css" />
+
+
+
+
+
+    <script src="../static/scripts/jquery.min.js"></script>
+
+    <script src="../static/scripts/bootstrap.min.js"></script>
+
+    <script src="../static/scripts/moment.min.js"></script>
+
+    <script src="../static/scripts/marked.min.js"></script>
+
+    <script src="../static/scripts/emojify.min.js"></script>
+
+    <script src="../static/scripts/custom/polyfills.js"></script>
+
+
+
+  <!-- Matomo -->
+  <script type="text/javascript">
+    var _paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="https://matomo.ethereum.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '22']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  <noscript><p><img src="https://matomo.ethereum.org/matomo.php?idsite=22&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+  <!-- End Matomo Code -->
+</head>
+
+
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="..">Go Ethereum</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            
+              
+              <li><a href="../docs/install-and-build/installing-geth">Install</a></li>
+            
+              
+              <li><a href="../downloads/">Downloads</a></li>
+            
+              
+              <li><a href="../docs/">Documentation</a></li>
+            
+          </ul>
+          <form class="navbar-form pull-right" role="search" method="get" action="https://duckduckgo.com/">
+            <input type="hidden" name="sites" value="geth.ethereum.org">
+            <input type="hidden" name="kz" value="-1">
+            <div class="input-group navbar-input-group-fixup">
+              <input class="input-sm" type="text" name="q" placeholder="Search site...">
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-default btn-sm"><i class="fa fa-search" aria-hidden="true"></i></button>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </nav>
+    
+<div class="container" style="padding-top: 24px;">
+  <div class="row">
+    <div class="col-md-3" id="toc" style="padding-top: 16px;">
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../docs/getting-started">Getting Started</a>
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../docs/install-and-build/installing-geth">Install and Build</a>
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../docs/interface/command-line-options">Using Geth</a>
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../docs/dapp/native">For dApp Developers</a>
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../docs/rpc/server">JSON RPC APIs</a>
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../docs/developers/devguide">For Geth Developers</a>
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../docs/clef/tutorial">Clef</a>
+        
+      </div>
+    
+      
+      
+      
+      <div class="list-group">
+        <a class="list-group-item active" href="../docs/vulnerabilities/vulnerabilities">Vulnerabilities</a>
+        
+      </div>
+    
+    </div>
+    <div class="col-md-9" id="content">
+      
+        <h1 class="featurette-heading">Geth Documentation</h1>
+      
+      <p>You have found the user manual for geth, the Go language implementation of Ethereum.</p>
+
+<ul>
+  <li><a href="./getting-started">Getting Started Guide</a></li>
+  <li><a href="./install-and-build/installing-geth">Installation Instructions</a></li>
+  <li><a href="./rpc/server">JSON-RPC Server</a></li>
+  <li><a href="./interface/javascript-console">JavaScript Console</a></li>
+</ul>
+
+<p>For the Go API reference and developer documentation head over to
+<a href="https://godoc.org/github.com/ethereum/go-ethereum">GoDoc</a>.</p>
+
+<h3 id="other-ethereum-documentation">Other Ethereum Documentation</h3>
+
+<p>For generic Ethereum-related information, check the <strong><a href="https://github.com/ethereum/wiki/wiki">Ethereum
+Wiki</a></strong>.</p>
+
+<ul>
+  <li><a href="https://github.com/ethereum/wiki/wiki/White-Paper">Ethereum Whitepaper</a></li>
+  <li><a href="https://ethereum.github.io/yellowpaper/paper.pdf">Ethereum Yellow Paper</a></li>
+  <li><a href="https://eips.ethereum.org">Ethereum Improvement Proposals (EIPs)</a></li>
+  <li><a href="https://github.com/ethereum/devp2p/blob/master/README.md">Peer-to-peer Networking Specifications</a></li>
+</ul>
+
+    </div>
+  </div>
+</div>
+
+    <hr/>
+    <footer class="container"><p>&copy; 2013–2021. The go-ethereum Authors. <a href="https://github.com/ethereum/go-ethereum/blob/gh-pages/docs/index.md">Edit this page.</a></p>
+    </footer>
+  </body>
+</html>
